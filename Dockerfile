@@ -29,7 +29,7 @@ RUN go get -u -v github.com/mgechev/revive
 RUN go get -u -v github.com/go-delve/delve/cmd/dlv
 RUN go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
 RUN go get -u -v github.com/godoctor/godoctor
-RUN go get -u -v golang.org/x/tools/gopls
+RUN go get -u -v github.com/uber/go-torch
 
 # open source
 RUN go get -d -v github.com/bitly/go-simplejson
@@ -37,13 +37,13 @@ RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
 
 # vscode
 RUN cd / && \
-    wget https://github.com/cdr/code-server/releases/download/3.1.0/code-server-3.1.0-linux-x86_64.tar.gz && \
-    tar zxvf code-server-3.1.0-linux-x86_64.tar.gz && \
-    mv code-server-3.1.0-linux-x86_64 vscode && \
-    rm -rf code-server-3.1.0-linux-x86_64.tar.gz
+    wget https://github.com/cdr/code-server/releases/download/3.1.1/code-server-3.1.1-linux-x86_64.tar.gz && \
+    tar zxvf code-server-3.1.1-linux-x86_64.tar.gz && \
+    mv code-server-3.1.1-linux-x86_64 vscode && \
+    rm -rf code-server-3.1.1-linux-x86_64.tar.gz
 
 RUN mkdir -p /vscode/data
-RUN /vscode/code-server                                  \
+RUN /vscode/code-server                                      \
         --user-data-dir /vscode/data                         \
         --install-extension ms-vscode.Go                     \
         --install-extension ms-python.python                 \
