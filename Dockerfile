@@ -4,7 +4,7 @@ MAINTAINER "Guolin"
 
 USER root
 RUN apt-get -y update --fix-missing
-RUN apt-get -y install gdb vim tree htop astyle
+RUN apt-get -y install gdb vim tree htop astyle graphviz
 
 # Tools for code-server to /go/bin
 # see https://github.com/microsoft/vscode-go/blob/master/src/goTools.ts
