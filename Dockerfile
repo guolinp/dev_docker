@@ -4,7 +4,7 @@ MAINTAINER "Guolin"
 
 USER root
 RUN apt-get -y update --fix-missing
-RUN apt-get -y install gdb vim tree htop astyle
+RUN apt-get -y install gdb vim tree htop astyle graphviz perf
 
 # Tools for code-server to /go/bin
 # see https://github.com/microsoft/vscode-go/blob/master/src/goTools.ts
@@ -34,6 +34,10 @@ RUN go get -u -v github.com/uber/go-torch
 # open source
 RUN go get -d -v github.com/bitly/go-simplejson
 RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
+
+# flame graph
+RUN cd / && \
+    git clone https://github.com/brendangregg/FlameGraph.git
 
 # vscode
 RUN cd / && \
