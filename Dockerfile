@@ -24,7 +24,7 @@ RUN go get -u -v golang.org/x/tools/cmd/goimports
 RUN go get -u -v github.com/sqs/goreturns
 RUN go get -u -v golang.org/x/lint/golint
 RUN go get -u -v github.com/cweill/gotests
-RUN go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
+#RUN go get -u -v github.com/golangci/golangci-lint/cmd/golangci-lint
 RUN go get -u -v github.com/mgechev/revive
 RUN go get -u -v github.com/go-delve/delve/cmd/dlv
 RUN go get -u -v github.com/davidrjenni/reftools/cmd/fillstruct
@@ -35,16 +35,13 @@ RUN go get -u -v github.com/uber/go-torch
 RUN go get -d -v github.com/bitly/go-simplejson
 RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
 
-# flame graph
-RUN cd / && \
-    git clone https://github.com/brendangregg/FlameGraph.git
-
 # vscode
+ENV VS_VERSION 3.1.1
 RUN cd / && \
-    wget https://github.com/cdr/code-server/releases/download/3.1.1/code-server-3.1.1-linux-x86_64.tar.gz && \
-    tar zxvf code-server-3.1.1-linux-x86_64.tar.gz && \
-    mv code-server-3.1.1-linux-x86_64 vscode && \
-    rm -rf code-server-3.1.1-linux-x86_64.tar.gz
+    wget https://github.com/cdr/code-server/releases/download/${VS_VERSION}/code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
+    tar zxvf code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
+    mv code-server-${VS_VERSION}-linux-x86_64 vscode       && \
+    rm -rf code-server-${VS_VERSION}-linux-x86_64.tar.gz
 
 RUN mkdir -p /vscode/data
 RUN /vscode/code-server                                      \
