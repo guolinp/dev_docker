@@ -36,7 +36,7 @@ RUN go get -d -v github.com/bitly/go-simplejson
 RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
 
 # vscode
-ENV VS_VERSION 3.1.1
+ENV VS_VERSION 3.2.0
 RUN cd / && \
     wget https://github.com/cdr/code-server/releases/download/${VS_VERSION}/code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
     tar zxvf code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
@@ -59,7 +59,7 @@ RUN /vscode/code-server                                      \
         --install-extension chiehyu.vscode-astyle
 
 
-WORKDIR /go
+WORKDIR /
 
 EXPOSE 8080
 
