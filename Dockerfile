@@ -36,7 +36,7 @@ RUN go get -d -v github.com/bitly/go-simplejson
 RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
 
 # vscode
-ENV VS_VERSION 3.2.0
+ENV VS_VERSION 3.3.1
 RUN cd / && \
     wget https://github.com/cdr/code-server/releases/download/${VS_VERSION}/code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
     tar zxvf code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
