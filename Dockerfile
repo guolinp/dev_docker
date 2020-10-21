@@ -38,7 +38,7 @@ RUN go get -d -v github.com/golang/protobuf/protoc-gen-go
 # vscode
 ENV VS_VERSION 3.6.0
 RUN cd / && \
-    wget https://github.com/cdr/code-server/releases/download/v${VS_VERSION}/code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
+    wget https://github.com/cdr/code-server/releases/download/v${VS_VERSION}/code-server-${VS_VERSION}-linux-amd64.tar.gz  && \
     tar zxvf code-server-${VS_VERSION}-linux-x86_64.tar.gz && \
     mv code-server-${VS_VERSION}-linux-x86_64 vscode       && \
     rm -rf code-server-${VS_VERSION}-linux-x86_64.tar.gz
